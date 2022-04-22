@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 
 import Sidebar from '../partials/Sidebar';
 import Header from '../partials/Header';
-import FilesListCard from '../partials/dashboard/FilesListCard'
-
-function Dashboard() {
+import ResultsCard from '../partials/dashboard/ResultsCard'
+function Databoard() {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -13,7 +12,6 @@ function Dashboard() {
 
       {/* Sidebar */}
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-
       {/* Content area */}
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
 
@@ -37,7 +35,7 @@ function Dashboard() {
             {/* Cards */}
             <div className="grid grid-cols-12 gap-6">
 
-              <FilesListCard />
+                <ResultsCard />
               
             </div>
 
@@ -49,4 +47,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Databoard;

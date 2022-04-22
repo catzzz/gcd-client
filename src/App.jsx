@@ -10,7 +10,8 @@ import './css/style.scss';
 import './charts/ChartjsConfig';
 
 // Import pages
-import Dashboard from './pages/Dashboard';
+import Filesboard from './pages/Filesboard';
+import Databoard from './pages/Databoard';
 
 function App() {
 
@@ -25,7 +26,9 @@ function App() {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={<Dashboard />} />
+        
+        <Route exact path="/" element={<Filesboard />} />
+        <Route exact path="/databoard" element={<Databoard />} />
       </Routes>
     </>
   );

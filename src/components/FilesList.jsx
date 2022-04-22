@@ -1,29 +1,37 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
+
+
+
 
 const FilesList = (props) => {
-  return (
-    <li className="flex px-2">
 
-      <div className="grow flex items-center border-b border-slate-100 text-sm py-2">
-        <div className="grow flex justify-between">
-          <div className="self-center">
-            <a
-              className="font-medium text-slate-800 hover:text-slate-900"
-              href="#0"
-            >
-              Qonto
-            </a>{" "}
-            billing
-          </div>
-          <div className="shrink-0 self-start mr-2">
-            <span className="font-medium text-slate-800">-$49.88</span>
-          </div>
-        </div>
-      </div>
-      <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-        <span className="hidden xs:block">RUN</span>
-      </button>
-    </li>
+
+  const onTrigger = (event) => {
+    props.toggleCheckBox(event)
+  }
+  return (
+    <div>
+      {props.files.map((file, index) => {
+        return (
+          <li key={index} className="flex px-2">
+            <div className="grow flex items-center border-b border-slate-100 text-sm py-2">
+              <div className="grow flex justify-between">
+  
+              
+                <div className="self-center flex  ">
+                <input className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value={file.Key} id="flexCheckDefault" onChange={onTrigger}/>
+                <p>{file.Key}</p>
+                </div>
+                <div className="shrink-0 self-start mr-4">
+                  <p>Size: </p>
+                  <p className="font-medium text-slate-800">{parseFloat(file.Size)/1000000} MB</p>
+                </div>
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </div>
   );
 };
 
